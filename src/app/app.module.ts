@@ -15,6 +15,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { FirebaseAuthenticationService } from './auth/services/firebase-authentication.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 
@@ -29,9 +31,10 @@ import { RegisterComponent } from './auth/register/register.component';
     AppRoutingModule,
     ParticlesModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [FirebaseAuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
