@@ -1,18 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
   particlesStyle: object = {};
-	particlesParams: object = {};
-	particlesWidth: number = 100;
-	particlesHeight: number = 100;
-  constructor() { }
+  particlesParams: object = {};
+  particlesWidth = 100;
+  particlesHeight = 100;
+
+  loginForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required],
+      workSpace: [null, Validators.required]
+    });
+
+   }
 
   ngOnInit() {
+
+
     this.particlesStyle = {
         'position': 'fixed',
         'width': '100%',
@@ -42,6 +57,18 @@ export class LoginComponent implements OnInit {
 
       }
     };
-  }
+
+  };
+
+
+  // * Login Logic //
+
+  doLogIn(){
+
+  };
+
+  authenticateLogin(){
+
+  };
 
 }

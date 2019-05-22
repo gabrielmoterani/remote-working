@@ -17,6 +17,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { FirebaseAuthenticationService } from './auth/services/firebase-authentication.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -32,7 +33,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     ParticlesModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    SharedModule
   ],
   providers: [FirebaseAuthenticationService],
   bootstrap: [AppComponent]
